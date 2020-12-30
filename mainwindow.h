@@ -6,6 +6,8 @@
 #include <painter.h>
 #include <file_system.h>
 #include <QDebug>
+#include <QDir>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -23,7 +25,7 @@ private:
   Ui::MainWindow *ui;
 
   std::unique_ptr<Painter> plot;
- std::unique_ptr< FileSystem> fs;
+
 
 };
 #endif // MAINWINDOW_H
