@@ -7,10 +7,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
   ui->setupUi(this);
   plot = std::make_unique<Painter>(ui->mainWidget);
-  fs =std::make_unique<FileSystem>( ui->treeFS);
-  connect (fs.get (),  &FileSystem::activated, this, [=](const QString& path){
-      qDebug()<<path;
-    });
 
 }
 
