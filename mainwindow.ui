@@ -44,8 +44,22 @@
     <number>2</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="btnProcessAll">
+       <property name="text">
+        <string>Обработать все</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="btnProcessCurrent">
+       <property name="text">
+        <string>Обработать выбранный</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="2">
       <widget class="QListWidget" name="listImpInfo">
        <property name="enabled">
         <bool>true</bool>
@@ -70,7 +84,7 @@
        </property>
       </widget>
      </item>
-     <item>
+     <item row="2" column="0" colspan="2">
       <widget class="QListWidget" name="listProperty">
        <property name="minimumSize">
         <size>
