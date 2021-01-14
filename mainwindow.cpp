@@ -22,14 +22,20 @@ MainWindow::MainWindow(QWidget *parent)
           ui->listProperty->addItem(dir.absoluteFilePath());}
   });
 
-//if(ui->dockProperty->isVisible ()){
     connect (ui->listProperty,&QListWidget::clicked , this, [=](){
-        qDebug()<<"here";
-        double fr = 0;
-        std::vector<double> imp = getSignalFromFile (ui->listProperty->currentItem ()->text (), fr);
-        plot->printArr (imp, fr);
+
+       InputFileHead head;
+       ui->listImpInfo->clear ();
+        std::vector<double> imp = getSignalFromFile (ui->listProperty->currentItem ()->text (), head);
+        ui->listImpInfo->addItem (
+              QString::number (head.year)+"/"+QString::number (head.month)+"/"+QString::number (head.day)+" | "+
+              QString::number (head.h)+":"+QString::number (head.min)+":"+QString::number (head.sec)
+              );
+        ui->listImpInfo->addItem ( "Частота сигнала: " + QString::number (head.freqSign)+" Гц"      );
+        ui->listImpInfo->addItem (  "Частота дискретизации"+QString::number (head.freqChan) + " Гц "   );
+        ui->listImpInfo->addItem ("Номер обрабатываемого канала: "+QString::number (head.chanNum) );
+        plot->printArr (imp, head.freqChan);
       });
-//  }
 
 }
 
@@ -38,7 +44,7 @@ MainWindow::~MainWindow()
   delete ui;
 }
 
-std::vector<double> MainWindow::getSignalFromFile(const QString &path, double &fd)
+std::vector<double> MainWindow::getSignalFromFile(const QString &path, InputFileHead &head)
 {
   QFile fIn(path);
   QByteArray hd;
@@ -51,7 +57,7 @@ std::vector<double> MainWindow::getSignalFromFile(const QString &path, double &f
       fIn.close ();
     }
   InputFileHead* fHead = reinterpret_cast<InputFileHead*>(&hd.data ()[0]);
-   fd = fHead->freqChan;
+   head = *fHead;
   std::vector<double> signs;
   QDataStream ds(fullData);
   ds.setByteOrder (ds.LittleEndian);

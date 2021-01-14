@@ -26,7 +26,7 @@ private:
   Ui::MainWindow *ui;
 
   std::unique_ptr<Painter> plot;
-   std::vector<double> getSignalFromFile(const QString &path,  double &fd);
+   std::vector<double> getSignalFromFile(const QString &path,  InputFileHead& head);
 
 };
 #endif // MAINWINDOW_H
