@@ -6,6 +6,9 @@
 #include <painter.h>
 #include <file_system.h>
 #include <QDebug>
+#include <QDir>
+#include <head.hpp>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -23,7 +26,7 @@ private:
   Ui::MainWindow *ui;
 
   std::unique_ptr<Painter> plot;
-
+   std::vector<double> getSignalFromFile(const QString &path,  double &fd);
 
 };
 #endif // MAINWINDOW_H

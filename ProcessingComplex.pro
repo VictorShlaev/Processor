@@ -17,6 +17,7 @@ SOURCES += \
 
 HEADERS += \
     file_system.h \
+    head.hpp \
     mainwindow.h \
     painter.h \
     qcustomplot.h

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1014</width>
+    <width>1408</width>
     <height>908</height>
    </rect>
   </property>
@@ -25,7 +25,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1014</width>
+     <width>1408</width>
      <height>20</height>
     </rect>
    </property>
@@ -33,44 +33,44 @@
     <property name="title">
      <string>Открыть</string>
     </property>
-    <addaction name="action"/>
-    <addaction name="action_2"/>
+    <addaction name="actOpenDir"/>
+    <addaction name="actOpenFile"/>
    </widget>
    <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QDockWidget" name="dockPropertyMain">
+  <widget class="QDockWidget" name="dockProperty">
    <attribute name="dockWidgetArea">
     <number>2</number>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents_2">
+   <widget class="QWidget" name="dockWidgetContents">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QListWidget" name="listWidget"/>
+      <widget class="QListWidget" name="listProperty"/>
      </item>
     </layout>
    </widget>
   </widget>
-  <widget class="QDockWidget" name="dockWidget_2">
+  <widget class="QDockWidget" name="dockLog">
    <attribute name="dockWidgetArea">
     <number>8</number>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents_3">
+   <widget class="QWidget" name="dockWidgetContents_2">
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="0" column="0">
-      <widget class="QListWidget" name="listWidget_2"/>
+      <widget class="QListWidget" name="listLog"/>
      </item>
     </layout>
    </widget>
   </widget>
-  <action name="action">
+  <action name="actOpenDir">
    <property name="text">
-    <string>Открыть файл</string>
+    <string>Открыть папку</string>
    </property>
   </action>
-  <action name="action_2">
+  <action name="actOpenFile">
    <property name="text">
-    <string>Окрыть папку</string>
+    <string>Открыть файл</string>
    </property>
   </action>
  </widget>
